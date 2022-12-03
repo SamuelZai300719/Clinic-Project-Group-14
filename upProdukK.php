@@ -12,7 +12,7 @@ $rename = date('hs').$nama_f;
 $sumber = $_FILES['foto']['tmp_name'];
 move_uploaded_file($sumber, $folder.$rename);
 
-$satu="UPDATE produk SET nama_produk='$nama_produk', keterangan='$ket_produk', harga='$harga', stok='$stok', foto='$rename' where id_produk='$id_produk'";
+$satu="UPDATE produk SET nama_produk='$nama_produk', ket_produk='$ket_produk', harga='$harga', stok='$stok', foto='$rename' where id_produk='$id_produk'";
 $konek=mysqli_query ($mysql, $satu);
 if ($konek)
 {
