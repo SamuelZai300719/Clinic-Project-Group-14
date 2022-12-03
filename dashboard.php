@@ -266,7 +266,7 @@
 
                         <div class="col-6">
                                 <div class="card-box">
-                                    <h4 class="header-title">Data Pasien</h4>
+                                    <h4 class="header-title">Data Produk</h4>
                                     <p class="sub-header">
                                         Kumpulan data produk KlinikHub
                                     </p>
@@ -312,7 +312,7 @@
                     
                         <div class="col-6">
                                 <div class="card-box">
-                                    <h4 class="header-title">Data Pasien</h4>
+                                    <h4 class="header-title">Data Rekam Medis</h4>
                                     <p class="sub-header">
                                         Kumpulan data rekam medis KlinikHub
                                     </p>
