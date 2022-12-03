@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Nov 2022 pada 16.47
--- Versi server: 10.4.17-MariaDB
--- Versi PHP: 7.3.27
+-- Generation Time: Dec 03, 2022 at 10:51 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `atmin`
+-- Table structure for table `atmin`
 --
 
 CREATE TABLE `atmin` (
@@ -37,7 +37,7 @@ CREATE TABLE `atmin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `atmin`
+-- Dumping data for table `atmin`
 --
 
 INSERT INTO `atmin` (`id_adm`, `username`, `password`, `email`, `nm_adm`, `telp`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `atmin` (`id_adm`, `username`, `password`, `email`, `nm_adm`, `telp`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `dokter`
+-- Table structure for table `dokter`
 --
 
 CREATE TABLE `dokter` (
@@ -59,16 +59,18 @@ CREATE TABLE `dokter` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `dokter`
+-- Dumping data for table `dokter`
 --
 
 INSERT INTO `dokter` (`id_dr`, `nm_dr`, `email`, `tlp`, `ket`, `foto`) VALUES
-(101, 'dr. Fanyya Thanyya', 'samuelanayaputra.zai@gmail.com', 62895422494709, 'dokter Umum', 0x30323136494d472d32303230303731362d5741303032312e6a7067);
+(1, 'Wiyarta Wijaya', 'wahyukurniarahman59@gmail.com', 6289601618653, 'Head Doctor of Klinik Kecantikan', 0x3037343664312e706e67),
+(2, 'Stiven How', 'wahyukurniarahman59@gmail.com', 6289601618653, 'Medical Executive Committee', 0x3037313164322e706e67),
+(3, 'Cindy Liang', 'wahyukurniarahman59@gmail.com', 6289601618653, 'Head Doctor of Klinik Kecantikan', 0x3037323764332e706e67);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pasien`
+-- Table structure for table `pasien`
 --
 
 CREATE TABLE `pasien` (
@@ -82,16 +84,16 @@ CREATE TABLE `pasien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `pasien`
+-- Dumping data for table `pasien`
 --
 
 INSERT INTO `pasien` (`id_pas`, `nm_pas`, `jk_pas`, `almt`, `tlp_pas`, `keluhan`, `nm_dr`) VALUES
-(12345, 'Reyhan Abadi', 'Netral', 'Jl. Cebok no. 12 Kota padang sidempuan', 6282165434746, 'Keseringan berak', 'dr. Fanyya Thanyya');
+(12345, 'Reyhan Abadi', 'Netral', 'Jl. Cebok no. 12 Kota padang sidempuan', 6282165434746, 'Muka tua tapi umur muda', 'Wiyarta Wijaya');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Table structure for table `produk`
 --
 
 CREATE TABLE `produk` (
@@ -104,16 +106,20 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `produk`
+-- Dumping data for table `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `ket_produk`, `harga`, `stok`, `foto`) VALUES
-(10001, 'Obat Supaya Ga Jelek', 'Membantu menghilangkan kejelekan pada wajah buruk rupa anda!', 'Rp 500.000', 100, '1207sertifikat magang samuel.jpg');
+(1, 'Derma Angel Acne Patch Night', 'Produk Wajah', 'Rp 24.000', 100, '0709q (1).jpeg'),
+(2, 'Bio Oil Skin Care', 'Produk Kulit', 'Rp 130.000', 100, '0741q (2).jpeg'),
+(3, 'La Roche Posay Cicaplast Baume B5 Soothing Re', 'Produk Badan, Wajah, dan Bibir', 'Rp 120.000', 100, '0748p (12).png'),
+(4, 'Parasol Gel 20 g', 'Produk Kulit', 'Rp 26.000', 100, '0735q (4).jpeg'),
+(5, 'Erha Acneact ACSBP Acne Cleanser Scrub Beta P', 'Produk Wajah', 'Rp 96.000', 100, '0747q (5).jpeg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rmedis`
+-- Table structure for table `rmedis`
 --
 
 CREATE TABLE `rmedis` (
@@ -126,60 +132,60 @@ CREATE TABLE `rmedis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `rmedis`
+-- Dumping data for table `rmedis`
 --
 
 INSERT INTO `rmedis` (`id_rmed`, `tgl`, `nm_pas`, `nm_dr`, `keluhan`, `status`) VALUES
-(110, '2006-11-23', 'Samuel Zai', 'dr. Fanyya Thanyya', 'Keseringan berak', 'Sedang Di Proses');
+(12345, '2022-11-12', 'Reyhan Abadi', 'Wiyarta Wijaya', 'Muka tua tapi umur muda', 'Belum Di Proses');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `atmin`
+-- Indexes for table `atmin`
 --
 ALTER TABLE `atmin`
   ADD PRIMARY KEY (`id_adm`);
 
 --
--- Indeks untuk tabel `dokter`
+-- Indexes for table `dokter`
 --
 ALTER TABLE `dokter`
   ADD PRIMARY KEY (`id_dr`),
   ADD UNIQUE KEY `nm_dr` (`nm_dr`);
 
 --
--- Indeks untuk tabel `pasien`
+-- Indexes for table `pasien`
 --
 ALTER TABLE `pasien`
   ADD PRIMARY KEY (`id_pas`),
   ADD UNIQUE KEY `nm_dr` (`nm_dr`);
 
 --
--- Indeks untuk tabel `produk`
+-- Indexes for table `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indeks untuk tabel `rmedis`
+-- Indexes for table `rmedis`
 --
 ALTER TABLE `rmedis`
   ADD PRIMARY KEY (`id_rmed`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `atmin`
+-- AUTO_INCREMENT for table `atmin`
 --
 ALTER TABLE `atmin`
   MODIFY `id_adm` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `dokter`
+-- AUTO_INCREMENT for table `dokter`
 --
 ALTER TABLE `dokter`
   MODIFY `id_dr` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
