@@ -46,7 +46,7 @@
                                         <div class="form-group row">
                                             <div class="col-12">
                                                 <label for="emailaddress">Username</label>
-                                                <input class="form-control" type="email" name="username" required="" placeholder="Tono@masyarakat.com">
+                                                <input class="form-control" type="text" name="username" required="" placeholder="Enter your username">
                                             </div>
                                         </div>
 
