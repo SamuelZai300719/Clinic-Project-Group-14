@@ -2,21 +2,13 @@
 <html lang="en">
 
 <head>
-        <meta charset="utf-8" />
+<meta charset="utf-8" />
         <title>KLINIK KECANTIKAN</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <link href="assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/libs/clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet">
-        <link href="assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/libs/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-        <link href="assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-
-        <!-- C3 Chart css -->
-        <link href="assets/libs/c3/c3.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/libs/custombox/custombox.min.css" rel="stylesheet" type="text/css" >
 
         <!-- App css -->
@@ -144,7 +136,7 @@
 
                     </div>
                     <!-- End Sidebar -->
-                    
+
                     <div class="clearfix"></div>
 
                 </div>
@@ -170,70 +162,62 @@
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="dashboard.php">Admin</a></li>
-                                            <li class="breadcrumb-item"><a href="rmedis.php">Rekam Medis</a></li>
+                                            <li class="breadcrumb-item"><a href="produk.php">Produk</a></li>
                                         </ol>
                                     </div>
                                     <h4 class="page-title">Dashboard</h4>
                                 </div>
                             </div>
                         </div>     
-                        <!-- end page title -->
-
+                        <!-- end page title -->  
+                        
                         <div class="row">
                             <div class="col-sm-4">
                                 <a href="#custom-modal" class="btn btn-primary waves-effect waves-light mb-3" data-animation="fadein" data-plugin="custommodal"
-                                   data-overlaySpeed="200" data-overlayColor="#36404a"><i class="md md-add"></i> Tambah Rekam Medis </a>                        
+                                    data-overlaySpeed="200" data-overlayColor="#36404a"><i class="md md-add"></i> Tambah Produk </a>
                             </div><!-- end col -->
                             <div class="col-12">
                                 <div class="card-box">
-                                    <h4 class="header-title">Rekam Medis Klinik Kecantikan</h4>
+                                    <h4 class="header-title">Data Produk Klinik Kecantikan</h4>
                                     <p class="sub-header">
-                                        Rekam Medis Klinik Kecantikan
+                                        Data Seluruh Produk Klinik Kecantikan
                                     </p>
 
                                     <div class="table-responsive">
                                         <table class="table m-0 table-hover">
-                                            <thead class="bg-light">
-                                            <tr align="center">
-                                                <td>ID</td>
-                                                <td>Tanggal</td>
-                                                <td>Nama Pasien</td>
-                                                <td>Nama Dokter</td>
-                                                <td>Keluhan</td>
-                                                <td>Status</td>
-                                                <td colspan="3">Aksi</td>
-                                            </tr>
-                                            </thead>
-
                                             <?php
                                                 require 'koneksi.php';
-                                                $sql="SELECT * FROM rmedis where id_rmed";
+                                                $sql="SELECT * FROM produk where id_produk";
                                                 $view=mysqli_query($mysql, $sql);
                                                 while ($data=mysqli_fetch_array($view)) {
                                             ?>     
                                                 <tbody>
-                                                    <tr align="center">
-                                                                                                 
-                                                        <td><?php echo $data ['id_rmed']; ?></td>
-                                                                                                
-                                                        <td><?php echo $data ['tgl']; ?></td>
-                                                   
-                                                        <td><?php echo $data ['nm_pas']; ?></td>
-                                                    
-                                                        <td><?php echo $data ['nm_dr']; ?></td>
-                                                        
-                                                        <td><?php echo $data ['keluhan']; ?></td>
+                                                    <tr>
+                                                        <td align="center" rowspan="7" style="width: 33%;"> <img src="produk/<?php echo $data['foto']; ?>" width="180" height="240"/></td>
+                                                    </tr>
+                                                    <tr>                                              
+                                                        <td><label>ID :</label> <?php echo $data ['id_produk']; ?></td>
+                                                    </tr>
+                                                    <tr>                                              
+                                                        <td><label>Nama :</label> <?php echo $data ['nama_produk']; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label>Keterangan :</label> <?php echo $data ['ket_produk']; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><label>Harga :</label> <?php echo $data ['harga']; ?></td>
+                                                    </tr>
+                                                    <tr>                                                     
+                                                        <td><label>Stok :</label> <?php echo $data ['stok']; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><a class="btn btn-primary waves-effect waves-light" data-animation="fadein"  data-overlaySpeed="200" data-overlayColor="#36404a" href="upProduk.php?id_produk=<?php echo $data['id_produk']; ?>" > UPDATE </a>
 
-                                                        <td><?php echo $data ['status']; ?></td>
-                                                    
-                                                        <td align="center"><a class="btn btn-primary waves-effect waves-light mb-3" data-animation="fadein"  data-overlaySpeed="200" data-overlayColor="#36404a" href="uprmedis.php?id_rmed=<?php echo $data['id_rmed']; ?>" > UPDATE </a></td>
-                                                    
-                                                        <td align="center"><a class="btn btn-danger waves-effect waves-light mb-3" href="hapusrm.php?id_rmed=<?php echo $data['id_rmed']; ?>">DELETE</a></td>
+                                                        <a class="btn btn-danger waves-effect waves-light" href="hapusProduk.php?id_produk=<?php echo $data['id_produk']; ?>">DELETE</a></td>
                                                     </tr>
                                                 </tbody>
                                             <?php } ?>
                                         </table>
-
                                     </div>
                                 </div>
                             </div>
@@ -269,83 +253,40 @@
             <button type="button" class="close" onclick="Custombox.modal.close();">
                 <span>&times;</span><span class="sr-only">Close</span>
             </button>
-            <h4 class="custom-modal-title">Tambah Rekam Medis</h4>
+            <h4 class="custom-modal-title">Tambah Produk</h4>
             <div class="custom-modal-text text-left">
-                <form method="post" action="rmedisk.php" class="parsley-examples">
+                <form method="post" action="produkK.php" class="form" enctype="multipart/form-data">
                     
-                    <div class="form-group row">
-                        <div class="col-6">
-                        <label>ID Rekam Medis</label>
-                        <input type="text" class="form-control" name="id_rmed" placeholder="Masukkan ID">
-                        </div>
-
-                        <div class="col-6">
-                        <label>Tanggal</label>
-                            <div>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" name="tgl" id="datepicker-autoclose">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
-                                    </div>
-                                </div><!-- input-group -->
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label>ID Produk</label>
+                        <input type="int" class="form-control" name="id_produk" placeholder="Masukkan ID">
                     </div>
-
-                     <div class="form-group ">
-                        <label>Keluhan</label>
-                        <input type="text" class="form-control" name="keluhan" placeholder="Masukkan keluhan">
+                    <div class="form-group">
+                        <label>Nama Produk</label>
+                        <input type="text" class="form-control" name="nama_produk" placeholder="Masukkan nama">
                     </div>
-
-                    <div class="form-group ">
-                        <label>Status</label>
-                        <select class="form-control" name="status">
-                            <b><option disabled selected value="pilihan">Pilihan Status Proses</option></b>
-                            <option>Belum Di Proses</option>
-                            <option>Sedang Di Proses</option>
-                            <option>Sudah Di Proses</option>
-                        </select>
+                    <div class="form-group">
+                        <label>Keterangan</label>
+                        <input type="text" class="form-control" name="ket_produk" placeholder="Masukkan Keterangan">
                     </div>
-
-                    <div class="form-group row">
-                        <div class="col-6">
-                        <label>Nama Pasien</label>
-                        <select class="form-control" name="nm_pas">
-                            <b><option disabled selected value="pilihan">Pilihan Nama Pasien</option></b>
-                            <?php
-                            $ewe="SELECT * FROM pasien GROUP BY nm_pas ORDER BY nm_pas";
-                            $ssq=mysqli_query($mysql, $ewe);
-                            while ($ta=mysqli_fetch_array($ssq)) {
-                            ?>
-                            <option value="<?=$ta['nm_pas'];?>"><?php echo $ta['nm_pas'];?></option>
-                            <?php
-                            }
-                            ?>
-                        </select>
-                        </div>
-
-                        <div class="col-6">
-                        <label>Nama Dokter</label>
-                        <select class="form-control" name="nm_dr">
-                            <b><option disabled selected value="pilihan">Pilihan Nama Dokter</option></b>
-                            <?php
-                            $ew="SELECT * FROM dokter GROUP BY nm_dr ORDER BY nm_dr";
-                            $sq=mysqli_query($mysql, $ew);
-                            while ($data=mysqli_fetch_array($sq)) {
-                            ?>
-                            <option value="<?=$data['nm_dr'];?>"><?php echo $data['nm_dr'];?></option>
-                            <?php
-                            }
-                            ?>
-                        </select>
-                        </div>
+                    <div class="form-group">
+                        <label>Harga</label>
+                        <input type="int" class="form-control" name="harga" placeholder="Masukkan harga">
                     </div>
+                    <div class="form-group">
+                        <label>Stok</label>
+                        <input type="int" class="form-control" name="stok" placeholder="Masukkan stok">
+                    </div>
+                    <div class="form-group">
+                        <label>Foto Produk</label>
+                        <input name="foto" required ="" class="form-control" type="file" >
+                    </div>              
 
                     <button type="submit" class="btn btn-secondary waves-effect waves-light mr-1">Save</button>
                 </form>
             </div>
         </div>
-
+        
         <!-- Right Sidebar -->
         <div class="right-bar">
             <div class="rightbar-title">
@@ -403,28 +344,10 @@
         <a href="javascript:void(0);" class="right-bar-toggle demos-show-btn">
             <i class="mdi mdi-settings-outline mdi-spin"></i> &nbsp;Pilih Mode
         </a>
-
+ -->
         <!-- Vendor js -->
         <script src="assets/js/vendor.min.js"></script>
-        <script src="assets/libs/custombox/custombox.min.js"></script>        
-
-        <!--C3 Chart-->
-        <script src="assets/libs/d3/d3.min.js"></script>
-        <script src="assets/libs/c3/c3.min.js"></script>
-
-        <script src="assets/libs/echarts/echarts.min.js"></script>
-
-        <script src="assets/libs/moment/moment.min.js"></script>
-        <script src="assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
-        <script src="assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
-        <script src="assets/libs/clockpicker/bootstrap-clockpicker.min.js"></script>
-        <script src="assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-        <script src="assets/libs/bootstrap-daterangepicker/daterangepicker.js"></script>
-
-        <script src="assets/js/pages/dashboard.init.js"></script>
-
-        <!-- Init js-->
-        <script src="assets/js/pages/form-pickers.init.js"></script>
+        <script src="assets/libs/custombox/custombox.min.js"></script>
 
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
